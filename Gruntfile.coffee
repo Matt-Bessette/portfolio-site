@@ -14,13 +14,14 @@ module.exports = (grunt) ->
 			build:
 				files:
 					'build/css/projects.min.css': 'src/scss/projects/projects.scss'
+					'build/css/index.min.css': 'src/scss/index/index.scss'
 		
 		# Copy normalize css into build
 		copy:
 			build:
 				files: [
 					{
-						expand: true
+						expand: false
 						src: ['node_modules/normalize.css/normalize.css']
 						dest: 'build/css/normalize.css'
 					}

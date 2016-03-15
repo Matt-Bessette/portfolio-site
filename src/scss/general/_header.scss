@@ -49,10 +49,11 @@ header.navigation {
   .navigation-menu-button {
     color: $navigation-color;
     display: block;
-    float: right;
+    float: left;
     line-height: $navigation-height;
-    margin: 0;
-    padding-right: 1em;
+    // margin: 0;
+    margin-left: .5em;
+    margin-top: .5em;
     text-decoration: none;
     text-transform: uppercase;
 

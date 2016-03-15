@@ -17,11 +17,11 @@ $(document).ready(function() {
 </script>
 <header class="navigation" role="banner">
   <div class="navigation-wrapper">
-    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu">MENU</a>
+    <a href="javascript:void(0)" class="navigation-menu-button" id="js-mobile-menu"><i class="fa fa-bars fa-2x"></i></a>
     <nav role="navigation">
       <ul id="js-navigation-menu" class="navigation-menu show">
-        <li class="nav-link"><a href="">Home</a></li>
-        <li class="nav-link"><a href="projects.php">Projects</a></li>
+        <li class="nav-link"><a href="/">Home</a></li>
+        <li class="nav-link"><a href="/projects.php">Projects</a></li>
         <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
         <li class="nav-link more"><a href="javascript:void(0)">Other Sites</a>
           <ul class="submenu">
@@ -39,15 +39,8 @@ $(document).ready(function() {
         </a></li>
           </ul>
         </li>
-      </ul>
-    </nav>
-    <div class="navigation-tools">
-      <nav role="navigation">
-      <ul id="js-navigation-menu" class="navigation-menu show">
         <li class="nav-link"><a href='https://github.com/Matt-Bessette/portfolio-site'><i class="fa fa-github-square fa-lg"></i> Site Source</a></li>
       </ul>
     </nav>
-      
-    </div>
   </div>
 </header>

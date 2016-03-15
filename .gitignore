@@ -12,3 +12,6 @@
 
 # Production error log cannot be stored on repo
 **/Error.log
+
+# Built css files should not be stored on repo
+**/css/*

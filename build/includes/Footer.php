@@ -5,8 +5,8 @@
 <footer class="footer-2" role="contentinfo">
 
     <ul>
-      <li><a href="">Home</a></li>
-      <li><a href="projects.php">Projects</a></li>
+      <li><a href="/">Home</a></li>
+      <li><a href="/projects.php">Projects</a></li>
       <li><a href="">Contact</a></li>
     </ul>
 

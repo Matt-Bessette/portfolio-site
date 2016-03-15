@@ -8,8 +8,12 @@
 
 div.mbes_projects_list {
 
-	@import 'icon_bullets';
+	@import 'cards';
 	@include outer-container;
+
+	a {
+		font-size:1.2em;
+	}
 
 }
 

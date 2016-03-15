@@ -45,28 +45,34 @@ try {
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/projects.min.css">
+		<script>
+		function loadDescription(id) {
+			console.log(id);
+		}
+ 		</script>
 	</head>
 	<body>
 		<?php echo file_get_contents(HEADER); ?>
+
 		<div class='mbes_projects_list'>
-			<ul class="bullets">
+			<div class="cards">
 				<?php while($project = $nabProjects->fetch(PDO::FETCH_ASSOC)): ?>
-  				<li class="bullet">
-    				<div class="bullet-icon <?php echo $project['img'] ?>">
-      					<span class="<?php echo $project['img'] ?>"><?php echo $project['img'] ?></span>
+  				<div class="card">
+    				<div class="card-image">
+      					<img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
     				</div>
-    				<div class="bullet-content">
+    				<div class="card-header">
       					<h2>
-      						<a href="<?php echo $project['github'] ?>">
-      							<?php echo $project['name'] ?>
-      						</a>
+      						<?php echo $project['name'] ?>
       					</h2>
-      					<h4><?php echo $project['date'] ?></h4>
-      					<p><?php echo $project['description'] ?></p>
       				</div>
-				</li> 
+      				<div class="card-copy">
+      					<h4><?php echo $project['date'] ?></h4>
+      					<p><?php echo substr($project['description'], 0, 500) ?><a href="#" onclick="loadDescription(<?php echo $project['_id'] ?>)">...</a></p>
+      				</div>
+				</div> 
 				<?php endwhile ?> 
-			</ul>
+			</div>
 		</div>
 		<?php echo file_get_contents(FOOTER); ?>
 	</body>

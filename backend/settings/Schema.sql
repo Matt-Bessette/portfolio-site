@@ -4,6 +4,7 @@ CREATE TABLE `projects` (
   `description` longtext NOT NULL,
   `github` varchar(256) DEFAULT NULL,
   `date` date NOT NULL,
+  `img` varchar(128) DEFAULT NULL,
   PRIMARY KEY (`_id`),
   UNIQUE KEY `github_UNIQUE` (`github`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;

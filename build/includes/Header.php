@@ -1,6 +1,6 @@
 
 <header class="centered-navigation" role="banner">
-<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+
 <script>
 $(document).ready(function() {
   var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
@@ -25,7 +25,7 @@ $(document).ready(function() {
         <li class="nav-link"><a href="/projects.php">Projects</a></li>
         <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
         <li class="nav-link logo">
-          <a href="javascript:void(0)" class="logo">
+          <a href="/" class="logo">
             <img src="/img/ico.png" alt="Logo image">
           </a>
         </li>

@@ -18,5 +18,8 @@ define('HEADER', 'includes/Header.php');
 # Location of page foot
 define('FOOTER', 'includes/Footer.php');
 
+# Location of modal html
+define('MODAL', 'includes/Modal.php');
+
 # Location of 500 error page
 define('_500', 'includes/500.php');

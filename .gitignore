@@ -1,0 +1,8 @@
+# If an error occurs with npm, dont commit the log
+**/npm-debug.log/*
+
+# Do not commit the sass cache
+**/.sass-cache/*
+
+# Do not store the npm modules
+**/node_modules/*

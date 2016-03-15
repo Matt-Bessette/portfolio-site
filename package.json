@@ -1,0 +1,16 @@
+{
+"name": "Matthew Bessette's Portfolio",
+
+"version": "0.0.1",
+
+"author":{
+	"name": "Matthew S Bessette",
+	"email": "bessette.matthew94@gmail.com",
+	"url": "https://matthewbessette.me"
+},
+
+  "devDependencies": {
+    "grunt-contrib-sass": "~1.0.0",
+    "grunt": "~0.4.5"
+  }
+}

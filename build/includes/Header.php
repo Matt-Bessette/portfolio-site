@@ -3,18 +3,19 @@
 <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 <script>
 $(document).ready(function() {
-  var menuToggle = $('#js-mobile-menu').unbind();
-  $('#js-navigation-menu').removeClass("show");
-
+  var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
+  $('#js-centered-navigation-menu').removeClass("show");
+  
   menuToggle.on('click', function(e) {
     e.preventDefault();
-    $('#js-navigation-menu').slideToggle(function(){
-      if($('#js-navigation-menu').is(':hidden')) {
-        $('#js-navigation-menu').removeAttr('style');
+    $('#js-centered-navigation-menu').slideToggle(function(){
+      if($('#js-centered-navigation-menu').is(':hidden')) {
+        $('#js-centered-navigation-menu').removeAttr('style');
       }
     });
   });
 });
+
 </script>
   <div class="centered-navigation-wrapper">
     <a href="javascript:void(0)" class="centered-navigation-mobile-menu" id="js-centered-navigation-mobile-menu"><i class="fa fa-bars fa-2x"></i></a>
@@ -25,7 +26,7 @@ $(document).ready(function() {
         <li class="nav-link"><a href="javascript:void(0)">Contact</a></li>
         <li class="nav-link logo">
           <a href="javascript:void(0)" class="logo">
-            <img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/placeholder_logo_3_dark.png" alt="Logo image">
+            <img src="/img/ico.png" alt="Logo image">
           </a>
         </li>
         <li class="nav-link more"><a href="javascript:void(0)">Other Sites</a>

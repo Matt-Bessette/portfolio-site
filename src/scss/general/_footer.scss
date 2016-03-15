@@ -6,7 +6,11 @@
   $footer-background: desaturate(darken($action-color, 20%), 30%);
   $footer-color: white;
   $footer-link-color: transparentize($footer-color, 0.6);
-  $footer-disclaimer-color: transparentize($footer-color, 0.6);
+  $footer-disclaimer-color: $footer-color;
+
+  @include media (220) {
+    display: none;
+  }
 
   background: $footer-background;
   padding: ($base-spacing * 2) $gutter;

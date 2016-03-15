@@ -4,7 +4,7 @@
   $large-screen: em(860) !default;
   $base-font-color: $dark-gray !default;
   $centered-navigation-padding: 1em;
-  $centered-navigation-logo-height: 2em;
+  $centered-navigation-logo-height: 3em;
   $centered-navigation-background: white;
   $centered-navigation-color: transparentize($base-font-color, 0.3);
   $centered-navigation-color-hover: $base-font-color;
@@ -43,10 +43,11 @@
   .centered-navigation-mobile-menu {
     color: $centered-navigation-color;
     display: block;
-    float: right;
+    float: left;
     line-height: $centered-navigation-height;
     margin: 0;
-    padding-right: $centered-navigation-submenu-padding;
+    padding-top: $centered-navigation-submenu-padding;
+    padding-left: $centered-navigation-submenu-padding;
     text-decoration: none;
     text-transform: uppercase;
 
@@ -102,8 +103,8 @@
     display: block;
     line-height: $centered-navigation-height;
     overflow: hidden;
-    padding-right: $centered-navigation-submenu-padding;
-    text-align: right;
+    padding-left: $centered-navigation-submenu-padding;
+    text-align: left;
     width: 100%;
     z-index: 9999;
 

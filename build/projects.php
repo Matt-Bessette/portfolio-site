@@ -20,7 +20,7 @@ $c = getConfig();
 $con = GetCon($c);
 
 # Query to recieve all the projects from the database
-$nabProjects = $con->prepare('select _id, name, description, github, date, img from projects order by date asc');
+$nabProjects = $con->prepare('select _id, name, description, github, date, img from projects order by date desc');
 
 # Execute the query and if there is an error, log it and display the 500 page to the user
 try {
@@ -61,6 +61,7 @@ try {
       							<?php echo $project['name'] ?>
       						</a>
       					</h2>
+      					<h4><?php echo $project['date'] ?></h4>
       					<p><?php echo $project['description'] ?></p>
       				</div>
 				</li> 

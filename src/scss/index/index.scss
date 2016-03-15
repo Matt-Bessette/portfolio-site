@@ -4,6 +4,31 @@
 
 @import '../general/header';
 
+div.portfolio {
 
+	$margin: 50px;
+
+	margin-top: $margin;
+
+	@include outer-container;
+
+	text-align: justify;
+
+	div {
+
+		span {
+			@include span-columns(6);
+			@include shift-in-context(1);
+			margin-bottom:$margin;
+			margin-left: 0;
+		}
+
+		span:nth-child(2n+1) {
+			@include span-columns(6);
+			margin-bottom:$margin;
+		}
+	}
+
+}
 
 @import '../general/footer';

@@ -1,7 +1,7 @@
 <?php
 
 # Location of the api directory for backend services
-define('API_LOC' , '/var/www/api/');
+define('API_LOC' , '/var/www/html/backend/');
 
 # Location of the configuration file
 define('CONFIG', API_LOC.'/settings/Config.php');

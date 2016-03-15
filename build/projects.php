@@ -31,7 +31,7 @@ try {
 
 	Logger(__FILE__, $e->getMessage());
 
-	require_once 'includes/500.php';
+	echo file_get_contents(_500);
 
 	exit;
 
@@ -42,9 +42,12 @@ try {
 	<head>
 		<meta charset="UTF-8">
 		<title>MBes Projects</title>
+		<link rel="stylesheet" type="text/css" href="css/normalize.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/projects.min.css">
 	</head>
 	<body>
+		<?php echo file_get_contents(HEADER); ?>
 		<div class='mbes_projects_list'>
 			<ul class="bullets">
 				<?php while($project = $nabProjects->fetch(PDO::FETCH_ASSOC)): ?>
@@ -64,5 +67,6 @@ try {
 				<?php endwhile ?> 
 			</ul>
 		</div>
+		<?php echo file_get_contents(FOOTER); ?>
 	</body>
 </html>

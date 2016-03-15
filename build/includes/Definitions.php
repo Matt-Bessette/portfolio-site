@@ -11,3 +11,12 @@ define('CON', API_LOC.'/functions/Con.php');
 
 # Location of error logger
 define('LOGGER', API_LOC.'/functions/Logger.php');
+
+# Location of page head
+define('HEADER', 'includes/Header.php');
+
+# Location of page foot
+define('FOOTER', 'includes/Footer.php');
+
+# Location of 500 error page
+define('_500', 'includes/500.php');

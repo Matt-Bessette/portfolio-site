@@ -15,11 +15,24 @@ module.exports = (grunt) ->
 				files:
 					'build/css/projects.min.css': 'src/scss/projects/projects.scss'
 		
+		# Copy normalize css into build
+		copy:
+			build:
+				files: [
+					{
+						expand: true
+						src: ['node_modules/normalize.css/normalize.css']
+						dest: 'build/css/normalize.css'
+					}
+				]
+
 	})
 	# Plug-ins
 	grunt.loadNpmTasks 'grunt-contrib-sass'
+	grunt.loadNpmTasks 'grunt-contrib-copy'
 
 	# Tasks
 	grunt.registerTask 'build', [
 		'sass:build'
+		'copy:build'
 	]

@@ -2,8 +2,14 @@
 @import '../external/base/base';
 @import '../external/neat/neat';
 
+@import '../general/header';
+
 div.mbes_projects_list {
 
 	@import 'icon_bullets';
 
+
+
 }
+
+@import '../general/footer';

@@ -8,7 +8,7 @@
 **/node_modules/*
 
 # Production api configuration file cannot be stored on repo
-**/Config.php/*
+**/Config.php
 
 # Production error log cannot be stored on repo
-**/Error.log/*
+**/Error.log

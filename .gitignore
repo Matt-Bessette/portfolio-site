@@ -14,4 +14,4 @@
 **/Error.log
 
 # Built css files should not be stored on repo
-**/css/*
+## **/css/*

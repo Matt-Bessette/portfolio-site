@@ -1,6 +1,3 @@
-RewriteEngine on
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^(.*)$ $1.php [NC,L]
 
 ErrorDocument 500 /500.php
 ErrorDocument 403 /403.php

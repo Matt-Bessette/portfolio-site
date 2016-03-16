@@ -8,7 +8,8 @@
 
 div.portfolio {
 
-	height:87%;
+	$min-screen : 500px;
+	$max-screen : $min-screen - 1;
 
 	$margin: 50px;
 
@@ -21,15 +22,29 @@ div.portfolio {
 	div {
 
 		span {
-			@include span-columns(6);
-			@include shift-in-context(1);
-			margin-bottom:$margin;
-			margin-left: 0;
+
+			@include media(max-width $max-screen) {
+				@include row;
+			}
+
+			@include media(min-width $min-screen) {
+				@include span-columns(5);
+				@include shift-in-context(1);
+				margin-bottom:$margin;
+			}
+			
 		}
 
 		span:nth-child(2n+1) {
-			@include span-columns(6);
-			margin-bottom:$margin;
+
+			@include media(max-width $max-screen) {
+				@include row;
+			}
+
+			@include media(min-width $min-screen) {
+				@include span-columns(5);
+				margin-bottom:$margin;
+			}
 		}
 	}
 

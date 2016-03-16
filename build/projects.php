@@ -42,6 +42,7 @@ try {
 	<head>
 		<meta charset="UTF-8">
 		<title>MBes Projects</title>
+		<link rel="icon" href="/img/ico.png" type="image/png" />
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/projects.min.css">
@@ -49,7 +50,7 @@ try {
 		<script src="projects.js"></script>
 	</head>
 	<body>
-		<?php echo file_get_contents(HEADER); ?>
+		<?php require_once(HEADER); ?>
 
 		<div class='mbes_projects_list'>
 			<div class="cards">
@@ -72,8 +73,6 @@ try {
 			</div>
 		</div>
 
-		<?php echo file_get_contents(MODAL); ?>
-
-		<?php echo file_get_contents(FOOTER); ?>
+		<?php require_once(FOOTER); ?>
 	</body>
 </html>

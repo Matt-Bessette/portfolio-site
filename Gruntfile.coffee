@@ -15,6 +15,7 @@ module.exports = (grunt) ->
 				files:
 					'build/css/projects.min.css': 'src/scss/projects/projects.scss'
 					'build/css/index.min.css': 'src/scss/index/index.scss'
+					'build/css/contact.min.css': 'src/scss/contact/contact.scss'
 		
 		# Copy normalize css into build
 		copy:

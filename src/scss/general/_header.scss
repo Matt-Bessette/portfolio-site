@@ -114,6 +114,10 @@
       outline: none;
       text-decoration: none;
 
+      span.underline {
+        border-bottom: 1px solid grey;
+      }
+
       &:focus,
       &:hover {
         color: $centered-navigation-color-hover;

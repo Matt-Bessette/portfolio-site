@@ -7,14 +7,15 @@ require_once 'includes/Definitions.php';
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>MBes Projects</title>
+		<title>MBes Home</title>
+		<link rel="icon" href="/img/ico.png" type="image/png" />
 		<link rel="stylesheet" type="text/css" href="css/normalize.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="css/index.min.css">
 		<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 	</head>
 	<body>
-		<?php echo file_get_contents(HEADER); ?>
+		<?php require_once(HEADER); ?>
 		<div class="portfolio">
 			<div>
 				<span><img src="http://ratemyprofessors.mtvnimages.com/prof/t_Patrick_Logan_813936.jpeg"></span>
@@ -29,6 +30,6 @@ require_once 'includes/Definitions.php';
 				</span>
 			</div>
 		</div>
-		<?php echo file_get_contents(FOOTER); ?>
+		<?php require_once(FOOTER); ?>
 	</body>
 </html>

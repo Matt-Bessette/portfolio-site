@@ -21,7 +21,11 @@ div.portfolio {
 
 	div {
 
-		span {
+		@include media(min-width $min-screen) {
+			@include row;
+		}
+
+		span.left {
 
 			@include media(max-width $max-screen) {
 				@include row;
@@ -32,19 +36,48 @@ div.portfolio {
 				@include shift-in-context(1);
 				margin-bottom:$margin;
 			}
+
+			text-align: justify;			
+			
+			label {
+				@include span-columns(12);
+				text-align: center;
+			}
+			
+			ul {
+				@include span-columns(6);
+				text-align: center;
+			}
+
 			
 		}
 
-		span:nth-child(2n+1) {
+		span.right {
+
 
 			@include media(max-width $max-screen) {
 				@include row;
+				margin: 15px;
 			}
 
 			@include media(min-width $min-screen) {
 				@include span-columns(5);
 				margin-bottom:$margin;
+				margin-left: 0;
 			}
+
+
+			text-align: justify;
+
+			label {
+				@include span-columns(12);
+				text-align: center;
+			}
+			ul {
+				@include span-columns(6);
+				text-align: center;
+			}
+
 		}
 	}
 

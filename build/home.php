@@ -18,15 +18,47 @@ require_once 'includes/Definitions.php';
 		<?php require_once(HEADER); ?>
 		<div class="portfolio">
 			<div>
-				<span><img src="http://ratemyprofessors.mtvnimages.com/prof/t_Patrick_Logan_813936.jpeg"></span>
-				<span>Cotton candy gummies chocolate dessert tart jujubes caramels tiramisu. Pastry tiramisu candy canes marzipan candy canes chupa chups danish. Brownie carrot cake jujubes candy jujubes sweet roll cupcake dragée. Sesame snaps pudding sweet pie danish croissant. Chocolate cake chocolate bar brownie topping dragée fruitcake oat cake croissant. Candy canes candy chocolate donut pastry croissant. Biscuit donut sugar plum tootsie roll oat cake. Jelly-o jujubes caramels bonbon candy biscuit apple pie danish soufflé. Sweet marshmallow liquorice brownie caramels chupa chups chocolate jelly-o. Gingerbread apple pie wafer. Biscuit cotton candy halvah sesame snaps. Pudding lollipop cupcake danish marshmallow gingerbread toffee tiramisu sesame snaps. Chocolate bar tart carrot cake macaroon.</span>
+				<span class='left'><img src="http://ratemyprofessors.mtvnimages.com/prof/t_Patrick_Logan_813936.jpeg"></span>
+				<span class='right'>Hi I am Matthew Bessette. I am a Computer Science major at the University of Rhode Island. I intend to graduate in Spring of 2016 with a Bachelors of Science with a minor in Cybersecurity. This is my portfolio website. The projects I have listed on this site are a collection of work that I did in my personal time, my classes, and while employed at the university.</span>
 			</div>
 			<div>
-				<span>
-					Gingerbread sweet gummi bears cotton candy. Donut sweet macaroon liquorice ice cream donut. Danish cheesecake topping muffin sweet roll biscuit chupa chups. Jujubes bonbon pie gingerbread chupa chups. Sesame snaps pudding liquorice pie gingerbread chocolate. Icing caramels cotton candy. Lemon drops sweet roll apple pie soufflé sweet roll. Muffin bonbon macaroon. Marzipan marzipan apple pie toffee jujubes. Apple pie jelly lollipop caramels sesame snaps cake pudding. Biscuit cotton candy lemon drops brownie gummi bears brownie macaroon liquorice. Jelly-o gingerbread pastry.
+				<span class='left'>
+					<label>Programming Languages and Frameworks</label>
+					<ul>
+						<li>PHP5</li>
+						<li>SQL</li>
+						<li>JavaScript</li>
+						<li>HTML5 / CSS3</li>
+						<li>Python</li>
+						<li>Java</li>
+					</ul>
+					<ul>
+						<li>Twig</li>
+						<li>React.js</li>
+						<li>Backbone.js</li>
+						<li>jQuery</li>
+						<li>SCSS</li>
+						<li>Grunt</li>
+					</ul>
 				</span>
-				<span>
-					Sweet danish chocolate bar soufflé. Croissant donut brownie cupcake chupa chups. Chupa chups pastry soufflé bonbon chocolate. Cupcake pastry croissant. Pastry chocolate tiramisu macaroon powder jelly bear claw. Cupcake bonbon jelly beans. Wafer jelly liquorice chocolate cake. Caramels chupa chups sweet roll jelly soufflé toffee lollipop. Pie pastry chupa chups ice cream ice cream bonbon. Lollipop pudding liquorice bonbon powder icing candy. Jelly-o jujubes sweet roll icing pastry cake lollipop chupa chups tiramisu. Lollipop powder gummies cupcake muffin tootsie roll chocolate tootsie roll. Cupcake caramels topping jujubes macaroon. Wafer lollipop dragée icing gingerbread.
+				<span class='right'>
+					<label>Systems and Softwares</label>
+					<ul>
+						<li>Linux: Ubuntu</li>
+						<li>Linux: CentOS</li>
+						<li>Windows</li>
+						<li>Mac OS X</li>
+						<li>Android</li>
+						<li>VirtualBox</li>
+					</ul>
+					<ul>
+						<li>Apache2</li>
+						<li>Git</li>
+						<li>MySQL</li>
+						<li>WordPress</li>
+						<li>CouchDB</li>
+						<li>Sublime Text 3</li>
+					</ul>
 				</span>
 			</div>
 		</div>

@@ -36,8 +36,8 @@
 
 
   .card-image {
-    overflow: hidden;
-    height: 150px;
+    
+    height: auto;
     max-height: 150px;
     background-color: $card-image-hover-color;
 
@@ -45,7 +45,6 @@
       @include transition (all 0.2s ease-in-out);
       border-top-left-radius: $base-border-radius;
       border-top-right-radius: $base-border-radius;
-      width: 100%;
       opacity: 1;
     }
   }
@@ -63,7 +62,7 @@
   .card-copy {
     font-size: 0.9em;
     line-height: 1.5em;
-    padding: ($base-spacing / 2) ($base-spacing / 2);
+    // padding: ($base-spacing / 2) ($base-spacing / 2);
 
     p {
       margin: 0 0 ($base-spacing / 2);

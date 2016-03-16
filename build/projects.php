@@ -54,10 +54,12 @@ try {
 
 		<div class='mbes_projects_list'>
 			<div class="cards">
+				<?php $i=0; ?>
 				<?php while($project = $nabProjects->fetch(PDO::FETCH_ASSOC)): ?>
+				
   				<div class="card" onclick="loadPage(<?php echo $project['_id'] ?>)">
     				<div class="card-image">
-      					<img src="https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png" alt="">
+      					<img src="/img/<?php echo $project['img'] ?>" alt="">
     				</div>
     				<div class="card-header">
       					<h2>
@@ -66,10 +68,21 @@ try {
       				</div>
       				<div class="card-copy">
       					<h4><?php echo $project['date'] ?></h4>
-      					<p><?php echo substr($project['description'], 0, 500) ?></p>
+      					<p><?php echo substr($project['description'], 0, 800) ?></p>
+      					<a href='<?php echo $project['github'] ?>'><i class='fa fa-arrow-circle-o-down'></i> Download</a>
       				</div>
-				</div> 
+				</div>
+				<?php $i++; ?>
 				<?php endwhile ?> 
+				<?php
+					if($i % 4 !== 0) {
+						for($j=0; $j<4-($i%4); $j++): ?>
+							
+						<div class='card'></div>
+
+						<?php endfor;
+					}
+				?>
 			</div>
 		</div>
 

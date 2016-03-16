@@ -18,7 +18,7 @@ require_once 'includes/Definitions.php';
 		<?php require_once(HEADER); ?>
 		<div class="portfolio">
 			<div>
-				<span class='left'><img src="http://ratemyprofessors.mtvnimages.com/prof/t_Patrick_Logan_813936.jpeg"></span>
+				<span class='left'><img src="/img/uri-logo.png"></span>
 				<span class='right'>Hi I am Matthew Bessette. I am a Computer Science major at the University of Rhode Island. I intend to graduate in Spring of 2016 with a Bachelors of Science with a minor in Cybersecurity. This is my portfolio website. The projects I have listed on this site are a collection of work that I did in my personal time, my classes, and while employed at the university.</span>
 			</div>
 			<div>

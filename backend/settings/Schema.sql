@@ -5,6 +5,5 @@ CREATE TABLE `projects` (
   `github` varchar(256) DEFAULT NULL,
   `date` date NOT NULL,
   `img` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`_id`),
-  UNIQUE KEY `github_UNIQUE` (`github`)
+  PRIMARY KEY (`_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;

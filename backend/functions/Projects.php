@@ -25,7 +25,7 @@ function FetchProjectById($con, $id) {
 function CreateProject($con, $p) {
 
 	if(!isset($p['name'], $p['description'], $p['github'], $p['date'], $p['img'])) 
-		return MISSINGDATA;
+		throw new Exception(MISSINGDATA);
 
 	$ins = $con->prepare('insert into projects (name, description, github, date, img) values (?, ?, ?, ?, ?)');
 
@@ -62,6 +62,9 @@ function UpdateProject($con, $id, $p) {
 		$o[] = 'img=?';
 		$v[] = $p['img'];
 	}
+
+	if(count($o) === 0)
+		throw new Exception(MISSINGDATA);
 
 	$v[] = $id;
 

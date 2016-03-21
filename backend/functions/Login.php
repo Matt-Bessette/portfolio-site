@@ -13,21 +13,21 @@ function ValidateLogin($con, $session, $user, $password) {
 	$prof = $getuser->fetch(PDO::FETCH_ASSOC);
 
 	if(count($prof) === 0)
-		return BADACCT;
+		throw new Exception(BADACCT);
 
 	if((int) $prof['locked'] === 1)
-		return LOCKEDACCT;
+		throw new Exception(LOCKEDACCT);
 
 	if((int) $prof['failed_attempts'] >= 3) {
 		$upduser = $con->prepare('update users set locked = 1 where _id = ?');
 		$upduser->execute([$profile['_id']]);
-		return LOCKEDACCT;
+		throw new Exception(LOCKEDACCT);
 	}
 
 	if(!password_verify($password, $prof['hash'])) {
 		$upduser = $con->prepare('update users set failed_attempts = failed_attempts + 1 where _id = ?');
 		$upduser->execute([$profile['_id']]);
-		return BADACCT;
+		throw new Exception(BADACCT);
 	}
 
 	$session->set('login', 1);

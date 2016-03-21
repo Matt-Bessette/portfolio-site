@@ -5,14 +5,17 @@ class Api {
 
 
 	private $methods,	# Store of registered api calls
+			$session,	# Session object
 			$con,		# PDO Connection
 			$conf;		# Database Configuration
 
-	public function __construct($conf, $con) {
+	public function __construct($conf, $con, $session) {
 
 		$this->conf = $conf;
 
 		$this->con = $con;
+
+		$this->session = $session;
 
 		$this->methods = array(
 			"GET"	=> 	[], 
@@ -78,22 +81,22 @@ class Api {
 
 				# Call the function with GET structure
 				case 'GET':
-					$resp = call_user_func($last['function'], $this->con, $GETS);
+					$resp = call_user_func($last['function'], $this->con, $GETS, $this->session);
 					break;
 
 				# Call the function with POST structure
 				case 'POST':
-					$resp = call_user_func($last['function'], $this->con, $this->POST_JSON(), $GETS);
+					$resp = call_user_func($last['function'], $this->con, $this->POST_JSON(), $GETS, $this->session);
 					break;
 
 				# Call the function with PUT structure
 				case 'PUT':
-					$resp = call_user_func($last['function'], $this->con, $GETS, $this->POST_JSON());
+					$resp = call_user_func($last['function'], $this->con, $GETS, $this->POST_JSON(), $this->session);
 					break;
 
 				# Call the function with DELETE structure
 				case 'DELETE':
-					$resp = call_user_func($last['function'], $this->con, $GETS);
+					$resp = call_user_func($last['function'], $this->con, $GETS, $this->session);
 					break;
 
 				# Display the options
@@ -110,7 +113,7 @@ class Api {
 				default:
 					$this->_400("Bad Method");
 			}
-			if($resp === "success")
+			if($resp === OK)
 				$this->_200("Success");
 		
 			else
@@ -118,16 +121,8 @@ class Api {
 		}
 		catch(Exception $e) {
 			switch($e->getMessage()){
-				case INVALID:
-					if($_SERVER['REQUEST_METHOD'] === "GET")
-						$this->_200("", "{}");	 		
-					else
-						$this->_400(INVALID);
-				break;
-				case OUT_OF_DATE:	$this->_400("Out of Date");			break;
-				case EXISTS:		$this->_400("Username Exists");		break;
-				case BAD_PASSWORD:	$this->_400("Invalid Password");	break;
-				case BAD_EMAIL:		$this->_400("Invalid Email");		break;
+				case BADACCT: case LOCKEDACCT: case BADEMAIL: case BADPASS: case PASSTOOSHORT: case PASSTOOWEAK: case MISSINGDATA: case OK:
+					$this->_400($e->getMessage());
 				default:
 					Logger(__FILE__, $e->getMessage());
 					$this->_500();

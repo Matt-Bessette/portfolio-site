@@ -45,12 +45,12 @@ function FetchUserById($con, $id) {
 function CreateUser($con, $profile) {
 
 	if(!isset($profile['email'], $profile['password']))
-		return MISSINGDATA;
+		throw new Exception(MISSINGDATA);
 
 	$pchk = _PasswordEnforce($profile['password']);
 
 	if($pchk !== true)
-		return $pchk;
+		throw new Exception($pchk);
 
 	$nuser = $con->prepare('insert into user (email, username, hash, admin, last_login) values (:email, :username, :hash, :admin, 0)');
 
@@ -72,7 +72,7 @@ function CreateUser($con, $profile) {
 function UpdateUser($con, $id, $profile) {
 
 	if(!isset($id))
-		return MISSINGDATA;
+		throw new Exception(MISSINGDATA);
 
 	$o = [];
 
@@ -85,7 +85,7 @@ function UpdateUser($con, $id, $profile) {
 		$pchk = _PasswordEnforce($profile['password']);
 
 		if($pchk !== true)
-			return $pchk;
+			throw new Exception($pchk);
 
 		$o[] = 'hash=:hash';
 	}
@@ -95,7 +95,7 @@ function UpdateUser($con, $id, $profile) {
 		$o[] = 'locked=:locked';
 
 	if(count($o) === 0)
-		return MISSINGDATA;
+		throw new Exception(MISSINGDATA);
 
 	$uuser = $con->prepare('update users set '.implode(',', $o).' where _id = :id');
 

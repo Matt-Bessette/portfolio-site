@@ -1,14 +1,14 @@
 <?php
 
-define('BADACCT', 'BADACCT');
-define('LOCKEDACCT', 'LOCKEDACCT');
+define('BADACCT', 'BAD ACCT');
+define('LOCKEDACCT', 'LOCKED ACCT');
 
-define('BADEMAIL', 'BADEMAIL');
+define('BADEMAIL', 'BAD EMAIL');
 
-define('BADPASS', 'BADPASS');
-define('PASSTOOSHORT', 'PASSTOOSHORT');
-define('PASSTOOWEAK', 'PASSTOOWEAK');
+define('BADPASS', 'BAD PASS');
+define('PASSTOOSHORT', 'PASS TOO SHORT');
+define('PASSTOOWEAK', 'PASS TOO WEAK');
 
-define('MISSINGDATA', 'MISSINGDATA');
+define('MISSINGDATA', 'MISSING DATA');
 
 define('OK', 'success');

@@ -15,3 +15,6 @@
 
 # Built css files should not be stored on repo
 **/css/*
+
+# Test folder
+**/_test/*

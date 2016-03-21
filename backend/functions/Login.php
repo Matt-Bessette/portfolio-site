@@ -2,11 +2,15 @@
 
 function ValidateLogin($con, $session, $user, $password) {
 
+	$session->destroy();
+
+	$session->open();
+
 	$session->set('login', 0);
 
 	$getuser = $con->prepare('select _id, email, username, hash, admin, locked, failed_attempts from users where email = :user or username = :user');
 
-	$getuser->bindParam(':user', $user, PDO::PARAM_STR, 256);
+	$getuser->bindParam(':user', strtolower($user), PDO::PARAM_STR, 256);
 
 	$getuser->execute();
 
@@ -20,13 +24,13 @@ function ValidateLogin($con, $session, $user, $password) {
 
 	if((int) $prof['failed_attempts'] >= 3) {
 		$upduser = $con->prepare('update users set locked = 1 where _id = ?');
-		$upduser->execute([$profile['_id']]);
+		$upduser->execute([$prof['_id']]);
 		throw new Exception(LOCKEDACCT);
 	}
 
 	if(!password_verify($password, $prof['hash'])) {
 		$upduser = $con->prepare('update users set failed_attempts = failed_attempts + 1 where _id = ?');
-		$upduser->execute([$profile['_id']]);
+		$upduser->execute([$prof['_id']]);
 		throw new Exception(BADACCT);
 	}
 
@@ -36,8 +40,8 @@ function ValidateLogin($con, $session, $user, $password) {
 
 	$upduser = $con->prepare('update users set last_login = ?, failed_attempts = 0 where _id = ?');
 
-	$upduser->execute([microtime(true)]);
+	$upduser->execute([microtime(true), $prof['_id']]);
 
-	return true;
+	return OK;
 
 }

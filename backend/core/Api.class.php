@@ -113,6 +113,9 @@ class Api {
 				default:
 					$this->_400("Bad Method");
 			}
+
+			$this->session->save_and_close();
+
 			if($resp === OK)
 				$this->_200("Success");
 		
@@ -145,10 +148,6 @@ class Api {
 		return $this->register("OPTIONS", $url, $allow);
 	}
 
-	/*
-		Order the permission lowest to highest if overloading
-		0 then 2 etc...
-	*/
 	private function register($method, $url, $callback) {
 		$pieces = explode('/', $url);
 		$query = "";
@@ -171,7 +170,7 @@ class Api {
 		try {
 			if(strtolower(@$_SERVER["CONTENT_TYPE"]) === "application/json; charset=utf-8") {
 			
-				$POST = json_decode(file_get_contents('php://input'));
+				$POST = json_decode(file_get_contents('php://input'), true);
 				return $POST;
 			}
 			else

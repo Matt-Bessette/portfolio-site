@@ -6,7 +6,7 @@ class Session
 
 	const TEMP = 2;
 
-	public function __construct($con, $conf) {
+	public function __construct($conf, $con) {
 
 		$this->con = $con;
 

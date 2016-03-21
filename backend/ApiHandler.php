@@ -18,13 +18,13 @@ $session = new Session($c, $con);
 
 $session->open();
 
-if((int) $session->get('login') !== 1 && $_SERVER['REQUEST_URI'] !== '/login' && $_SERVER['REQUEST_METHOD'] !== 'POST') {
+if((int) $session->get('login') !== 1 && $_SERVER['REQUEST_URI'] !== '/login' && $_SERVER['REQUEST_URI'] !== '/verify' && $_SERVER['REQUEST_METHOD'] !== 'POST') {
 	header('HTTP/1.1 401', true, 401);
 	exit;
 }
 
 # All accounts can use the GET calls
-if((int) $session->get('admin') === 1 && ($_SERVER['REQUEST_METHOD'] !== 'GET' && $_SERVER['REQUEST_METHOD'] !== 'OPTIONS')) {
+if((int) $session->get('admin') === 0 && ($_SERVER['REQUEST_METHOD'] !== 'GET' && $_SERVER['REQUEST_METHOD'] !== 'OPTIONS')) {
 	header('HTTP/1.1 401', true, 401);
 	exit;
 }
@@ -104,8 +104,8 @@ $api->delete('/users/:id', function($con, $id) {
 $api->get('/verify', function($con, $nil, $session) {
 
 	return [
-		'login'	=>	$session->get('login'),
-		'admin'	=>	$session->get('admin')
+		'login'	=>	(int) $session->get('login'),
+		'admin'	=>	(int) $session->get('admin')
 	];
 
 });
@@ -117,5 +117,3 @@ $api->post('/login', function($con, $payload, $nil, $session) {
 });
 
 $api->run();
-
-$session->save_and_close();

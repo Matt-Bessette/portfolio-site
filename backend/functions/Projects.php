@@ -1,6 +1,6 @@
 <?php
 
-require_once '../settings/Codes.php';
+## require_once '../settings/Codes.php';
 
 function FetchAllProjects($con) {
 	

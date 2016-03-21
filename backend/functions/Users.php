@@ -1,18 +1,18 @@
 <?php
 
-require_once '../settings/Codes.php';
+## require_once '../settings/Codes.php';
 
 function _PasswordEnforce($pass) {
 
 	$score = 3;
 
-	if(count($pass) < 8)
+	if(strlen($pass) < 8)
 		return PASSTOOSHORT;
 
 	if(strpos($pass, ' ') === false)
 		$score--;
 
-	if(preg_match('/[0-9]/') !== 1)
+	if(preg_match('/[0-9]/', $pass) !== 1)
 		$score--;
 
 	if($score < 2)
@@ -22,7 +22,7 @@ function _PasswordEnforce($pass) {
 
 }
 
-function FetchUsers($con) {
+function FetchAllUsers($con) {
 
 	$all = $con->prepare('select _id, email, username, admin, last_login, failed_attempts, locked from users');
 
@@ -52,10 +52,13 @@ function CreateUser($con, $profile) {
 	if($pchk !== true)
 		throw new Exception($pchk);
 
-	$nuser = $con->prepare('insert into user (email, username, hash, admin, last_login) values (:email, :username, :hash, :admin, 0)');
+	if(!filter_var($profile['email'], FILTER_VALIDATE_EMAIL))
+		throw new Exception(BADEMAIL);
 
-	$nuser->bindParam(':email', $profile['email'], PDO::PARAM_STR, 256);
-	$nuser->bindParam(':username', $profile['username'], PDO::PARAM_STR, 128);
+	$nuser = $con->prepare('insert into users (email, username, hash, admin, last_login) values (:email, :username, :hash, :admin, 0)');
+
+	$nuser->bindParam(':email', strtolower($profile['email']), PDO::PARAM_STR, 256);
+	$nuser->bindParam(':username', strtolower($profile['username']), PDO::PARAM_STR, 128);
 	$nuser->bindParam(':hash', password_hash($profile['password'], PASSWORD_DEFAULT), PDO::PARAM_STR, 256);
 	$nuser->bindParam(
 		':admin', 
@@ -76,8 +79,11 @@ function UpdateUser($con, $id, $profile) {
 
 	$o = [];
 
-	if(isset($profile['email'])) 
+	if(isset($profile['email']))  {
+		if(!filter_var($profile['email'], FILTER_VALIDATE_EMAIL))
+			throw new Exception(BADEMAIL);
 		$o[] = 'email=:email';
+	}
 	if(isset($profile['username'])) 
 		$o[] = 'username=:username';
 	if(isset($profile['password'])) {
@@ -100,9 +106,9 @@ function UpdateUser($con, $id, $profile) {
 	$uuser = $con->prepare('update users set '.implode(',', $o).' where _id = :id');
 
 	if(isset($profile['email'])) 
-		$uuser->bindParam(':email', $profile['email'], PDO::PARAM_STR, 256);
+		$uuser->bindParam(':email', strtolower($profile['email']), PDO::PARAM_STR, 256);
 	if(isset($profile['username'])) 
-		$uuser->bindParam(':username', $profile['username'], PDO::PARAM_STR, 128);
+		$uuser->bindParam(':username', strtolower($profile['username']), PDO::PARAM_STR, 128);
 	if(isset($profile['password'])) 
 		$uuser->bindParam(':hash', password_hash($profile['password'], PASSWORD_DEFAULT), PDO::PARAM_STR, 256);
 	if(isset($profile['admin']) && (int) $profile['admin'] < 2) 

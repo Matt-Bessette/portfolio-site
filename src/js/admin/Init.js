@@ -1,17 +1,12 @@
+var ROOT = 'https://api.localhost';
+var router;
+
 $(function() {
+	router = new CoreRouter();
 
-	var ROOT = 'https://api.localhost';
-
-	$.ajax({
-		type: 'GET',
-		url: ROOT+'/verify',
-		dataType: 'jsonp',
-	}).done(function(r) {
-
-		console.log(r);
-
-	}).fail(function() {
-		console.log('Error checking session...');
+	Backbone.history.start({
+		pushState: false,
+		root: "/admin"
 	});
 
 });

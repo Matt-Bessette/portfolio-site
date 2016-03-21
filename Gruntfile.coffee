@@ -34,18 +34,25 @@ module.exports = (grunt) ->
 					}
 					{
 						expand: false
-						src: ['src/js/admin/*.js']
-						dest: 'build/js/admin.js'
+						src: ['node_modules/backbone/node_modules/underscore/underscore.js']
+						dest: 'build/js/underscore.js'
 					}
 				]
+
+		concat:
+			build:
+				src: ['src/js/admin/*.js']
+				dest: 'build/js/admin.js'
 
 	})
 	# Plug-ins
 	grunt.loadNpmTasks 'grunt-contrib-sass'
 	grunt.loadNpmTasks 'grunt-contrib-copy'
+	grunt.loadNpmTasks 'grunt-contrib-concat'
 
 	# Tasks
 	grunt.registerTask 'build', [
 		'sass:build'
 		'copy:build'
+		'concat:build'
 	]

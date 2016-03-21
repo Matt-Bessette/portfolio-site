@@ -74,7 +74,6 @@ function UpdateUser($con, $id, $profile) {
 	if(!isset($id))
 		return MISSINGDATA;
 
-	$q = 'update users set';
 	$o = [];
 
 	if(isset($profile['email'])) 
@@ -98,7 +97,7 @@ function UpdateUser($con, $id, $profile) {
 	if(count($o) === 0)
 		return MISSINGDATA;
 
-	$uuser = $con->prepare('update user set '.implode(',', $o).' where _id = :id');
+	$uuser = $con->prepare('update users set '.implode(',', $o).' where _id = :id');
 
 	if(isset($profile['email'])) 
 		$uuser->bindParam(':email', $profile['email'], PDO::PARAM_STR, 256);

@@ -5,7 +5,6 @@ class Api {
 
 
 	private $methods,	# Store of registered api calls
-			$session,	# Session object 
 			$con,		# PDO Connection
 			$conf;		# Database Configuration
 
@@ -14,13 +13,6 @@ class Api {
 		$this->conf = $conf;
 
 		$this->con = $con;
-
-		# If Session.class.php was to be used
-		// $this->session = new Session($conf);
-		// $this->session->open();
-		// if( (int) $this->session->get("login") !== 2 ) 
-		// 	$this->_401();
-
 
 		$this->methods = array(
 			"GET"	=> 	[], 

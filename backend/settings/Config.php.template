@@ -5,6 +5,9 @@ function GetConfig() {
 
 	return [
 
+		'cookie_lifetime'	=>	0,
+		'cookie_name'		=>	'',
+
 		'db_type'	=>	'',
 		'db_host'	=>	'',
 		'db_name'	=>	'',

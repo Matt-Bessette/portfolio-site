@@ -14,7 +14,10 @@
 **/Error.log
 
 # Built css files should not be stored on repo
-**/css/*
+**/build/css/*
+
+# Built js files should not be stored on repo
+**/build/js/*
 
 # Test folder
 **/_test/*

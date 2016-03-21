@@ -30,8 +30,21 @@ class Api {
 	public function run() {
 		try {
 
+			header("Access-Control-Allow-Origin: {$this->conf['api_origin']}");
+			header('Access-Control-Allow-Methods: OPTIONS, GET, POST, PUT, DELETE');
+
+			$isJsonP = false;
+
+			# Remove GET variables (can be from jsonp)
+			$cleanup = explode('?', $_SERVER['REQUEST_URI']);
+
+			if(strlen($cleanup[1]) > 0)
+				parse_str($cleanup[1], $isJsonP);
+
+			Logger(__FILE__, $isJsonP);
+
 			# The pieces of the API call
-			$pieces = explode('/', $_SERVER['REQUEST_URI']);
+			$pieces = explode('/', $cleanup[0]);
 
 			$query1 = "";	# Without variable
 			$query2 = "";	# With variable
@@ -120,7 +133,7 @@ class Api {
 				$this->_200("Success");
 		
 			else
-				$this->_200("", json_encode($resp));
+				$this->_200("", json_encode($resp), $isJsonP);
 		}
 		catch(Exception $e) {
 			switch($e->getMessage()){
@@ -200,7 +213,7 @@ class Api {
 		header("HTTP/1.1 401 Not Logged In", true, 401);
 		exit;
 	}
-	private function _200($message, $body=null) {
+	private function _200($message, $body=null, $isJsonP) {
 
 		// $this->session->save_and_close();
 		if($body === null){
@@ -211,7 +224,11 @@ class Api {
 		else {
 			header("Accept: application/json");
 			header("Content-Type : application/json; charset=utf-8");
-			echo $body;
+
+			if(is_array($isJsonP))
+				echo $isJsonP['callback']."($body);";
+			else
+				echo $body;
 		}
 		exit;
 	}

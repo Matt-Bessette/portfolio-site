@@ -5,6 +5,8 @@ function GetConfig() {
 
 	return [
 
+		'api_origin'		=>	'',
+
 		'cookie_lifetime'	=>	0,
 		'cookie_name'		=>	'',
 

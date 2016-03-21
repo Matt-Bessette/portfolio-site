@@ -18,15 +18,36 @@ $session = new Session($c, $con);
 
 $session->open();
 
-if((int) $session->get('login') !== 1 && $_SERVER['REQUEST_URI'] !== '/login' && $_SERVER['REQUEST_URI'] !== '/verify' && $_SERVER['REQUEST_METHOD'] !== 'POST') {
-	header('HTTP/1.1 401', true, 401);
-	exit;
+$login = $session->get('login');
+$admin = $session->get('admin');
+
+# Remove GET variables (can be from jsonp)
+$cleanup = explode('?', $_SERVER['REQUEST_URI']);
+
+# If user is not logged in...
+if($login !== 1) {
+
+	# And they are not trying to login or check status...
+	if($cleanup[0] !== '/login' and $cleanup[0] !== '/verify' ) {
+
+		# Tell them no
+		header('HTTP/1.1 401', true, 401);
+		$session->save_and_close();
+		exit;
+	}
 }
 
-# All accounts can use the GET calls
-if((int) $session->get('admin') === 0 && ($_SERVER['REQUEST_METHOD'] !== 'GET' && $_SERVER['REQUEST_METHOD'] !== 'OPTIONS')) {
-	header('HTTP/1.1 401', true, 401);
-	exit;
+# If user is not admin...
+if($admin !== 1) {
+
+	# And they are not trying GET or OPTIONS calls...
+	if($_SERVER['REQUEST_METHOD'] !== 'GET' and $_SERVER['REQUEST_METHOD'] !== 'OPTIONS') {
+
+		# Tell them no
+		header('HTTP/1.1 401', true, 401);
+		$session->save_and_close();
+		exit;
+	}
 }
 
 require_once 'core/Api.class.php';
@@ -109,6 +130,8 @@ $api->get('/verify', function($con, $nil, $session) {
 	];
 
 });
+
+$api->options('/verify', ['GET']);
 
 $api->post('/login', function($con, $payload, $nil, $session) {
 

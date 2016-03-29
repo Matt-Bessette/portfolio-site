@@ -4,7 +4,7 @@
 function Logger($file, $error) {
 	$f = fopen(__DIR__.'/logs/Error.log', 'a');
 	$date = date("Y-m-d H:i:s");
-	fwrite($f, "[$date] [$file] $error \n");
+	fwrite($f, "[$date] [$file] ".(is_array($error) ? '['.implode(',').']' : $error)." \n");
 	fclose($f);
 	return 1;
 }

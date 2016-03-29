@@ -1,22 +1,7 @@
 <div class='wrapper-for-content-outside-of-footer'>
 <header class="centered-navigation" role="banner">
 
-<script>
-$(document).ready(function() {
-  var menuToggle = $('#js-centered-navigation-mobile-menu').unbind();
-  $('#js-centered-navigation-menu').removeClass("show");
-  
-  menuToggle.on('click', function(e) {
-    e.preventDefault();
-    $('#js-centered-navigation-menu').slideToggle(function(){
-      if($('#js-centered-navigation-menu').is(':hidden')) {
-        $('#js-centered-navigation-menu').removeAttr('style');
-      }
-    });
-  });
-});
 
-</script>
   <div class="centered-navigation-wrapper">
     <a href="javascript:void(0)" class="centered-navigation-mobile-menu" id="js-centered-navigation-mobile-menu"><i class="fa fa-bars fa-2x"></i></a>
     <nav role="navigation">

@@ -1,0 +1,12 @@
+div.login {
+
+	@include span-columns(6);
+	@include shift-in-context(3);
+
+	margin-top: 50px;
+
+	span#error {
+		color: red;
+
+	}
+}

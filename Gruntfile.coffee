@@ -44,11 +44,25 @@ module.exports = (grunt) ->
 				src: ['src/js/admin/*.js']
 				dest: 'build/js/admin.js'
 
+		watch:
+			jsbuild:
+				files:
+					'src/js/admin/*.js'
+				tasks:
+					'concat:build'
+			sassbuild:
+				files:
+					'src/scss/**'
+				tasks:
+					'sass:build'
+
+
 	})
 	# Plug-ins
 	grunt.loadNpmTasks 'grunt-contrib-sass'
 	grunt.loadNpmTasks 'grunt-contrib-copy'
 	grunt.loadNpmTasks 'grunt-contrib-concat'
+	grunt.loadNpmTasks 'grunt-contrib-watch'
 
 	# Tasks
 	grunt.registerTask 'build', [

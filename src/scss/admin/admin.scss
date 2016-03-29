@@ -4,5 +4,11 @@
 
 @import '../general/header';
 
+div#content {
+
+	@include outer-container;
+
+	@import 'login';
+}
 
 @import '../general/footer';

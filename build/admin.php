@@ -17,15 +17,15 @@ require_once CONFIG;	$c = GetConfig();
 	<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
 	<script src="js/underscore.js"></script>
 	<script src="js/backbone.js"></script>
-	<script src="js/admin.js"></script>
 </head>
 <body>
 	<?php require_once HEADER; ?>
 
-	<div class='content'>
-
+	<div id="content">
+		
 	</div>
 
 	<?php require_once FOOTER; ?>
+	<script src="js/admin.js"></script>
 </body>
 </html>

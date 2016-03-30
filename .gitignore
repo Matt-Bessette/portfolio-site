@@ -22,5 +22,8 @@
 # Library files should not be stored on repo
 **/build/lib/*
 
+# Dependency external files should not be stored on repo
+**/src/scss/external/*
+
 # Test folder
 **/_test/*

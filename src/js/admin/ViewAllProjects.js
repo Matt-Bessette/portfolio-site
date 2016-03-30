@@ -32,17 +32,12 @@ var ViewAllProjects = {
 
 	render: function() {
 
-		console.log('halllo');
-
 		var ctx = this;
-
-		console.log(ctx.$div)
 
 		ctx.$el.append(ctx.$div);
 
 		$.ajax({
 			type: 'GET',
-			dataType: 'json',
 			url: ROOT+'/api/1/projects'
 		}).done(function(data) {
 

@@ -16,8 +16,7 @@ var CoreRouter = Backbone.Router.extend({
 
 		$.ajax({
 			type: 'GET',
-			url: ROOT+'/api/1/verify',
-			dataType: 'json'
+			url: ROOT+'/api/1/verify'
 		}).done(function(r){
 			if(r.login === 1) {
 				if(goto !== undefined)

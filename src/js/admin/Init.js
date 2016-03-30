@@ -3,6 +3,11 @@ var router;
 
 $(function() {
 
+	$.ajaxSetup({
+		contentType: 'application/json; charset=utf-8',
+		dataType: 'json'
+	});
+
 	var rt = $('div#content');
 
 	ViewLogin.init(rt);

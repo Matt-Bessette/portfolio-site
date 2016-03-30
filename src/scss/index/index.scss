@@ -27,6 +27,14 @@ div.portfolio {
 
 		span.left {
 
+			img {
+				margin-left: auto;
+				margin-right: auto;
+				width: 179px;
+				display: block;
+				margin-top: 30px;
+			}
+
 			@include media(max-width $max-screen) {
 				@include row;
 			}

@@ -16,7 +16,7 @@ function _PasswordEnforce($pass) {
 		$score--;
 
 	if($score < 2)
-		return PASSTOWEAK;
+		return PASSTOOWEAK;
 
 	return true;
 

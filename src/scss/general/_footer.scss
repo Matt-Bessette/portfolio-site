@@ -54,7 +54,7 @@ html, body {
     @include display(flex);
     @include justify-content(center);
     @include flex-wrap(wrap);
-    margin-bottom: $base-spacing;
+
     a {
       margin-left: .8em;
       margin-right: .8em;

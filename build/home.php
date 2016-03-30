@@ -19,7 +19,7 @@ require_once 'includes/Definitions.php';
 		<div class="portfolio">
 			<div>
 				<span class='left'><img src="/img/uri-logo.png"></span>
-				<span class='right'>Hi I am Matthew Bessette. I am a Computer Science major at the University of Rhode Island. I intend to graduate in Spring of 2016 with a Bachelors of Science with a minor in Cybersecurity. This is my portfolio website. The projects I have listed on this site are a collection of work that I did in my personal time, my classes, and while employed at the university.</span>
+				<span class='right'>Thank you for visiting my portfolio, my name is Matthew Bessette. I am a Computer Science major at the University of Rhode Island. I will be graduating in the Spring of 2016 with a Bachelors of Science with a minor in Cyber security. This site is a collection of work that I have developed in either my personal time, my classes, or while employed at the university.</span>
 			</div>
 			<div>
 				<span class='left'>

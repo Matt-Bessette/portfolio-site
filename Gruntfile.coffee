@@ -25,17 +25,17 @@ module.exports = (grunt) ->
 					{
 						expand: false
 						src: ['node_modules/normalize.css/normalize.css']
-						dest: 'build/css/normalize.css'
+						dest: 'build/lib/normalize.css'
 					}
 					{
 						expand: false
 						src: ['node_modules/backbone/backbone.js']
-						dest: 'build/js/backbone.js'
+						dest: 'build/lib/backbone.js'
 					}
 					{
 						expand: false
 						src: ['node_modules/backbone/node_modules/underscore/underscore.js']
-						dest: 'build/js/underscore.js'
+						dest: 'build/lib/underscore.js'
 					}
 				]
 

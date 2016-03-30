@@ -19,5 +19,8 @@
 # Built js files should not be stored on repo
 **/build/js/*
 
+# Library files should not be stored on repo
+**/build/lib/*
+
 # Test folder
 **/_test/*

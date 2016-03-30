@@ -4,11 +4,33 @@
 
 @import '../general/header';
 
+
+@mixin title() {
+	
+	$pad : 10px;
+	$border-r : 10px;
+
+	background-color: lightgrey;
+	border-top-left-radius: $border-r;
+	border-top-right-radius: $border-r;
+	border-bottom: 1px solid black;
+	text-align:left;
+	padding-left:$pad;
+	padding-top: $pad;
+	padding-bottom: $pad;
+	font-size:1.4em;
+}
+
+
 div#content {
 
 	@include outer-container;
 
 	@import 'login';
+
+	@import 'menu';
+
+	@import 'projects_table';
 }
 
 @import '../general/footer';

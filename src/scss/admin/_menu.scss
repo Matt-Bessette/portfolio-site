@@ -1,0 +1,41 @@
+div.menu-container {
+
+	$border-r : 10px;
+
+	border: 1px solid black;
+
+	border-radius: $border-r;
+
+	margin-top:50px;
+
+	@include span-columns(3);
+
+	div.title {
+	
+		@include title;
+	}
+
+	div.menu {
+
+		span {
+
+			&:last-of-type {
+				border-bottom-left-radius: $border-r;
+				border-bottom-right-radius: $border-r;
+			}
+
+			&.selected {
+				background-color: lightgreen;
+			}
+
+			&:hover {
+				cursor: pointer;
+				background-color: lightblue;
+			}
+
+			display:block;
+			text-align: center;
+			border-bottom: 1px solid lightgrey;
+		}
+	}
+}

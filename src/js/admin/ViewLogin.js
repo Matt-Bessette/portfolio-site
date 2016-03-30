@@ -34,20 +34,30 @@ var ViewLogin = {
 		$.ajax({
 			type:'POST',
 			url: ROOT+'/api/1/login',
-			dataType:'json',
 			data: JSON.stringify({username:email, password:pass}),
 			contentType: 'application/json; charset=utf-8'
 		}).done(function(resp) {
 
+			console.log(resp);
+
 			if(resp === false)
 				ctx.$span.html('Invalid username/password');
-			else
-				router.navigate('');
+			else {
+				ctx.$span.html('Loading...');
+				router.navigate('', {trigger: true});
+			}
 
 		}).fail(function(jqXHR) {
-			console.log(jqXHR)
 			console.log('Error logging in...');
-			ctx.$span.html('There was a server error');
+			if (jqXHR.status === 400) {
+
+				if (jqXHR.statusText === 'LOCKED ACCT')
+					ctx.$span.html('Account has been locked');
+				else
+					ctx.$span.html('Invalid username/password');
+			}
+			else
+				ctx.$span.html('There was a server error');
 		});
 	},
 
@@ -60,6 +70,16 @@ var ViewLogin = {
 		this.$el.html(this.$div);
 
 		this.$div.append(this.$span);
+
+		$('input').keyup(function(e) {
+			if (e.keyCode == 13) {
+				ctx.AttemptLogin();
+			}
+		});
+
+		this.$div.on('remove', function() {
+			$('input').off('keyup');
+		});
 	}
 
 };

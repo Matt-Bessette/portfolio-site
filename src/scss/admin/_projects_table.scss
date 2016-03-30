@@ -1,0 +1,28 @@
+div.projects {
+
+	$border-r : 10px;
+
+	margin-top: 50px;
+
+	border: 1px solid black;
+
+	border-top-left-radius: $border-r;
+	border-top-right-radius: $border-r;
+
+	@include span-columns(9);
+
+	button {
+		margin: 5px;
+	}
+
+	div.title {
+		@include title;
+	}
+
+	table {
+		// margin: 5px;
+		border-top: 1px solid lightgrey;
+		position: relative;
+	}
+
+}

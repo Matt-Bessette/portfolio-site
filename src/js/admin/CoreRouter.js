@@ -10,7 +10,7 @@ var CoreRouter = Backbone.Router.extend({
 		"projman/:pid": "projmanId"
 	},
 
-	index: 	function() {
+	_verify: function(goto) {
 
 		var ctx = this;
 
@@ -18,25 +18,21 @@ var CoreRouter = Backbone.Router.extend({
 			type: 'GET',
 			url: ROOT+'/api/1/verify',
 			dataType: 'json'
-		}).done(function(r) {
-
-			console.log(r);
-
-			var view;
-
-			if(r.login === 1)
-				ctx.navigate('menu');
+		}).done(function(r){
+			if(r.login === 1) {
+				if(goto !== undefined)
+					ctx.navigate(goto, {trigger:true});
+			}
 			else
-				ctx.navigate('login');
-			
-
+				ctx.navigate('login', {trigger:true});
 		}).fail(function() {
 			console.log('Error checking session...');
 		});
 	},
 
-	menu: function() {
+	index: 	function() {
 
+		this._verify('projman');
 	},
 
 	login: function() {
@@ -48,17 +44,33 @@ var CoreRouter = Backbone.Router.extend({
 
 	userman: function() {
 
+		this._verify();
+		ViewMenu.render();
+
+
 	},
 
 	usermanId: function(uid) {
+
+		this._verify();
+		ViewMenu.render();
+
 
 	},
 
 	projman: function() {
 
+		this._verify();
+		ViewMenu.render();
+		ViewAllProjects.render();
+
 	},
 
 	projmanId: function(pid) {
+
+		this._verify();
+		ViewMenu.render();
+
 
 	}
 
